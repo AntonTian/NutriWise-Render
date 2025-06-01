@@ -1,0 +1,6 @@
+Flask
+flask-cors
+firebase-admin
+Flask-Mail
+python-dotenv
+gunicorn
