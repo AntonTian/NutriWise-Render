@@ -15,8 +15,7 @@ import json
 app = Flask(__name__)
 CORS(app, supports_credentials=True)
 app.secret_key = os.getenv("SECRET_KEY")
-firebase_json = os.getenv("FIREBASE_CREDENTIALS")
-cred = credentials.Certificate(json.loads(firebase_json))
+cred = credentials.Certificate("ServiceAccountKey.json")
 fa.initialize_app(cred)
 
 db = firestore.client()
