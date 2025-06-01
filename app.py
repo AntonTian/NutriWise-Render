@@ -10,11 +10,13 @@ import random
 import time
 from dotenv import load_dotenv
 import os
+import json
 
 app = Flask(__name__)
 CORS(app, supports_credentials=True)
 app.secret_key = os.getenv("SECRET_KEY")
-cred = credentials.Certificate("ServiceAccountKey.json")
+firebase_json = os.getenv("FIREBASE_CREDENTIALS")
+cred = credentials.Certificate(json.loads(firebase_json))
 fa.initialize_app(cred)
 
 db = firestore.client()
