@@ -13,7 +13,7 @@ import os
 
 app = Flask(__name__)
 CORS(app, supports_credentials=True)
-
+app.secret_key = os.getenv("SECRET_KEY")
 cred = credentials.Certificate("ServiceAccountKey.json")
 fa.initialize_app(cred)
 
